@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <packaging>jar</packaging>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>bungeecord</artifactId>
+
+  <parent>
+    <groupId>dev.kerpson</groupId>
+    <artifactId>crazymotd</artifactId>
+    <version>1.0.1</version>
+  </parent>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+  </properties>
+
+  <repositories>
+    <!-- Bungeecord repository -->
+    <repository>
+      <id>bungeecord-repo</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+
+    <!-- Commands repository -->
+    <repository>
+      <id>panda-repository</id>
+      <url>https://repo.panda-lang.org/releases</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <!-- Bungeecord engine -->
+    <dependency>
+      <groupId>net.md-5</groupId>
+      <artifactId>bungeecord-api</artifactId>
+      <version>1.20-R0.2</version>
+      <type>jar</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.md-5</groupId>
+      <artifactId>bungeecord-api</artifactId>
+      <version>1.20-R0.2</version>
+      <type>javadoc</type>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Adventure libraries -->
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-api</artifactId>
+      <version>4.16.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-text-serializer-legacy</artifactId>
+      <version>4.16.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-text-minimessage</artifactId>
+      <version>4.16.0</version>
+    </dependency>
+    <dependency>
+      <groupId>net.kyori</groupId>
+      <artifactId>adventure-platform-bungeecord</artifactId>
+      <version>4.3.2</version>
+    </dependency>
+
+    <!-- Commands library -->
+    <dependency>
+      <groupId>dev.rollczi</groupId>
+      <artifactId>litecommands-bungeecord</artifactId>
+      <version>3.4.0</version>
+    </dependency>
+
+    <!-- Shared library -->
+    <dependency>
+      <groupId>dev.kerpson</groupId>
+      <artifactId>shared</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+
+    <!-- BStats -->
+    <dependency>
+      <groupId>org.bstats</groupId>
+      <artifactId>bstats-bungeecord</artifactId>
+      <version>3.0.2</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>crazymotd-bungeecord-${project.parent.version}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.12.1</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <compilerArgs>
+            <arg>-parameters</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.5.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <relocations>
+            <relocation>
+              <pattern>eu.crazycast.motd.shared</pattern>
+              <shadedPattern>dev.kerpson.motd.bungee.shared</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>org.bstats</pattern>
+              <shadedPattern>dev.kerpson.motd.bungee.libs.bstats</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>net.kyori</pattern>
+              <shadedPattern>dev.kerpson.motd.bungee.libs.adventure</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>eu.okaeri</pattern>
+              <shadedPattern>dev.kerpson.motd.bungee.libs.okaeri</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>dev.rollczi.litecommands</pattern>
+              <shadedPattern>dev.kerpson.motd.bungee.libs.litecommands</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>panda</pattern>
+              <shadedPattern>dev.kerpson.motd.bungee.libs.panda</shadedPattern>
+            </relocation>
+          </relocations>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

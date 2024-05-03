@@ -1,0 +1,5 @@
+name: crazymotd
+version: 1.0.1
+main: dev.kerpson.motd.bungee.BungeeMotd
+author: kerpson
+website: github.com/kerpsondev/CrazyMotd
