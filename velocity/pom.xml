@@ -94,23 +94,23 @@
           <relocations>
             <relocation>
               <pattern>eu.crazycast.motd.shared</pattern>
-              <shadedPattern>eu.crazycast.motd.velocity.shared</shadedPattern>
+              <shadedPattern>dev.kerpson.motd.velocity.shared</shadedPattern>
             </relocation>
             <relocation>
               <pattern>org.bstats</pattern>
-              <shadedPattern>eu.crazycast.motd.velocity.libs.bstats</shadedPattern>
+              <shadedPattern>dev.kerpson.motd.velocity.libs.bstats</shadedPattern>
             </relocation>
             <relocation>
               <pattern>eu.okaeri</pattern>
-              <shadedPattern>eu.crazycast.motd.velocity.libs.okaeri</shadedPattern>
+              <shadedPattern>dev.kerpson.motd.velocity.libs.okaeri</shadedPattern>
             </relocation>
             <relocation>
               <pattern>dev.rollczi.litecommands</pattern>
-              <shadedPattern>eu.crazycast.motd.velocity.libs.litecommands</shadedPattern>
+              <shadedPattern>dev.kerpson.motd.velocity.libs.litecommands</shadedPattern>
             </relocation>
             <relocation>
               <pattern>panda</pattern>
-              <shadedPattern>eu.crazycast.motd.velocity.libs.panda</shadedPattern>
+              <shadedPattern>dev.kerpson.motd.velocity.libs.panda</shadedPattern>
             </relocation>
           </relocations>
         </configuration>
