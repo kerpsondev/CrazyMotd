@@ -45,11 +45,16 @@
       <version>0.5.3-alpha</version>
     </dependency>
 
-    <!-- Gson library -->
+    <!-- Google libraries -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <version>2.11.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>33.3.0-jre</version>
     </dependency>
 
     <!-- Lombok -->

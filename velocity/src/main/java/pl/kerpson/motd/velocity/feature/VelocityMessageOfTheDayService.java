@@ -10,6 +10,7 @@ import pl.kerpson.motd.shared.configuration.section.PlayerListConfiguration;
 import pl.kerpson.motd.shared.configuration.section.VersionConfiguration;
 import pl.kerpson.motd.shared.feature.MessageOfTheDay;
 import pl.kerpson.motd.shared.feature.MessageOfTheDayService;
+import pl.kerpson.motd.shared.feature.randomize.MessageOfTheDayRandomize;
 import pl.kerpson.motd.shared.placeholer.PluginPlaceholders;
 import pl.kerpson.motd.shared.util.ChatUtil;
 import java.util.ArrayList;
@@ -38,13 +39,13 @@ public class VelocityMessageOfTheDayService extends MessageOfTheDayService<Proxy
       return Optional.of(Component.empty());
     }
 
-    this.setDescriptionIndex(index -> index + 1);
-
-    if (this.descriptionIndex >= messageOfTheDays.size()) {
-      this.descriptionIndex = 0;
+    MessageOfTheDayRandomize messageOfTheDayRandomize = this.getRandomize();
+    Optional<MessageOfTheDay> messageOfTheDayOptional = messageOfTheDayRandomize.get();
+    if (messageOfTheDayOptional.isEmpty()) {
+      return Optional.of(Component.empty());
     }
 
-    MessageOfTheDay messageOfTheDay = messageOfTheDays.get(this.descriptionIndex);
+    MessageOfTheDay messageOfTheDay = messageOfTheDayOptional.get();
     return Optional.of(Component.join(
         JoinConfiguration.separator(Component.newline()),
         messageOfTheDay.getLines()

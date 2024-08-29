@@ -1,11 +1,13 @@
 package pl.kerpson.motd.bungee.feature;
 
+import javax.swing.text.html.Option;
 import pl.kerpson.motd.shared.configuration.Configuration;
 import pl.kerpson.motd.shared.configuration.section.MessageOfTheDayConfiguration;
 import pl.kerpson.motd.shared.configuration.section.PlayerListConfiguration;
 import pl.kerpson.motd.shared.configuration.section.VersionConfiguration;
 import pl.kerpson.motd.shared.feature.MessageOfTheDay;
 import pl.kerpson.motd.shared.feature.MessageOfTheDayService;
+import pl.kerpson.motd.shared.feature.randomize.MessageOfTheDayRandomize;
 import pl.kerpson.motd.shared.placeholer.PluginPlaceholders;
 import pl.kerpson.motd.shared.util.ChatUtil;
 import java.util.ArrayList;
@@ -44,12 +46,13 @@ public class BungeeMessageOfTheDayService extends MessageOfTheDayService<ProxyPi
       return Optional.of(new TextComponent(BUNGEE_COMPONENT_SERIALIZER.serialize(Component.empty())));
     }
 
-    this.setDescriptionIndex(index -> index + 1);
-    if (this.descriptionIndex >= messageOfTheDays.size()) {
-      this.setDescriptionIndex(0);
+    MessageOfTheDayRandomize messageOfTheDayRandomize = this.getRandomize();
+    Optional<MessageOfTheDay> messageOfTheDayOptional = messageOfTheDayRandomize.get();
+    if (!messageOfTheDayOptional.isPresent()) {
+      return Optional.of(new TextComponent(BUNGEE_COMPONENT_SERIALIZER.serialize(Component.empty())));
     }
 
-    MessageOfTheDay messageOfTheDay = messageOfTheDays.get(this.descriptionIndex);
+    MessageOfTheDay messageOfTheDay = messageOfTheDayOptional.get();
     return Optional.of(new TextComponent(BUNGEE_COMPONENT_SERIALIZER.serialize(Component.join(
         JoinConfiguration.separator(Component.newline()),
         messageOfTheDay.getLines().stream()
