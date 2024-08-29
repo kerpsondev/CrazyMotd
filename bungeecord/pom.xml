@@ -8,7 +8,7 @@
   <artifactId>bungeecord</artifactId>
 
   <parent>
-    <groupId>dev.kerpson</groupId>
+    <groupId>pl.kerpson</groupId>
     <artifactId>crazymotd</artifactId>
     <version>1.0.1</version>
   </parent>
@@ -80,7 +80,7 @@
 
     <!-- Shared library -->
     <dependency>
-      <groupId>dev.kerpson</groupId>
+      <groupId>pl.kerpson</groupId>
       <artifactId>shared</artifactId>
       <version>1.0.1</version>
     </dependency>
@@ -124,27 +124,27 @@
           <relocations>
             <relocation>
               <pattern>eu.crazycast.motd.shared</pattern>
-              <shadedPattern>dev.kerpson.motd.bungee.shared</shadedPattern>
+              <shadedPattern>pl.kerpson.motd.bungee.shared</shadedPattern>
             </relocation>
             <relocation>
               <pattern>org.bstats</pattern>
-              <shadedPattern>dev.kerpson.motd.bungee.libs.bstats</shadedPattern>
+              <shadedPattern>pl.kerpson.motd.bungee.libs.bstats</shadedPattern>
             </relocation>
             <relocation>
               <pattern>net.kyori</pattern>
-              <shadedPattern>dev.kerpson.motd.bungee.libs.adventure</shadedPattern>
+              <shadedPattern>pl.kerpson.motd.bungee.libs.adventure</shadedPattern>
             </relocation>
             <relocation>
               <pattern>eu.okaeri</pattern>
-              <shadedPattern>dev.kerpson.motd.bungee.libs.okaeri</shadedPattern>
+              <shadedPattern>pl.kerpson.motd.bungee.libs.okaeri</shadedPattern>
             </relocation>
             <relocation>
               <pattern>dev.rollczi.litecommands</pattern>
-              <shadedPattern>dev.kerpson.motd.bungee.libs.litecommands</shadedPattern>
+              <shadedPattern>pl.kerpson.motd.bungee.libs.litecommands</shadedPattern>
             </relocation>
             <relocation>
               <pattern>panda</pattern>
-              <shadedPattern>dev.kerpson.motd.bungee.libs.panda</shadedPattern>
+              <shadedPattern>pl.kerpson.motd.bungee.libs.panda</shadedPattern>
             </relocation>
           </relocations>
         </configuration>

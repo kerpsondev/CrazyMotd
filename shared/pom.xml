@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>dev.kerpson</groupId>
+    <groupId>pl.kerpson</groupId>
     <artifactId>crazymotd</artifactId>
     <version>1.0.1</version>
   </parent>
