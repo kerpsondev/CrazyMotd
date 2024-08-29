@@ -146,6 +146,7 @@ public class VelocityMotd {
 
   public void reloadConfiguration() throws OkaeriException {
     this.configuration.load(true);
+    this.messageOfTheDayService.reloadRandomize();
     this.setupMessageOfTheDayTask();
   }
 }
