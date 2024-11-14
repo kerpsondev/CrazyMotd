@@ -1,6 +1,10 @@
-![](https://i.imgur.com/2L2Yu20.png)
+<div align="center">
+  <img src="https://i.imgur.com/QJEGFca.png" width="600" />
+</div>
 
-# 📝 CrazyMotd [![Release](https://img.shields.io/github/v/release/kerpsondev/CrazyMotd.svg)](https://github.com/kerpsondev/CrazyMotd/releases)
+![GitHub Release](https://img.shields.io/github/v/release/kerpsondev/crazymotd?style=flat-square&color=green&label=Latest%20version)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/kerpsondev/crazymotd/total?label=Total%20downloads)
+
 
 CrazyMotd is a simple plugin to support MOTD of minecraft servers.
 </br>
